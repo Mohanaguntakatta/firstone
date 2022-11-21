@@ -34,7 +34,7 @@ Thread.Sleep(1000);
 // click Administration button
 IWebElement administrationButton = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
 administrationButton.Click();
-Thread.Sleep(1000);
+Thread.Sleep(1500);
 
 // identify time&meterials button
 IWebElement timeMeterials = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a"));
@@ -71,10 +71,28 @@ Thread.Sleep(1000);
 //click save button
 IWebElement saveButton = driver.FindElement(By.Id("SaveButton"));
 saveButton.Click();
-Thread.Sleep(1000);
+Thread.Sleep(1500);
 
 
 
 //check if the user save record
+
+//click go to the last page
+IWebElement gotothelastpage = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
+gotothelastpage.Click();
+Thread.Sleep(1500);
+
+IWebElement newCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+newCode.Click();                                  
+
+if (newCode.Text == "C001")
+{
+    Console.WriteLine("Time record created successfully");
+}
+else
+{
+    Console.WriteLine("Time record hasn't been created successfully");
+}
+
 
 
