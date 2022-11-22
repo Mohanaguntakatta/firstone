@@ -82,17 +82,61 @@ IWebElement gotothelastpage = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/
 gotothelastpage.Click();
 Thread.Sleep(1500);
 
-IWebElement newCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
-newCode.Click();                                  
 
-if (newCode.Text == "C001")
-{
-    Console.WriteLine("Time record created successfully");
-}
-else
-{
-    Console.WriteLine("Time record hasn't been created successfully");
-}
+Thread.Sleep(1000);
+// click edit button
+IWebElement editButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[2]/td[5]/a[1]"));
+editButton.Click();                                   
+
+// edit code textbox 
+IWebElement editCodeTextbox = driver.FindElement(By.Id("Code"));
+editCodeTextbox.Clear();
+editCodeTextbox.SendKeys("C002");
+Thread.Sleep(1500);
+
+// edit description textbox
+IWebElement editDescriptionTextbox = driver.FindElement(By.Id("Description"));
+editDescriptionTextbox.Clear();
+editDescriptionTextbox.SendKeys("Firstone");
+Thread.Sleep(1500);
+
+// click save button
+IWebElement clickSavebutton = driver.FindElement(By.Id("SaveButton"));
+clickSavebutton.Click();
+Thread.Sleep(1500);
+
+// click go to the late page
+IWebElement gotothelastpageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
+gotothelastpageButton.Click();
+Thread.Sleep(1500);
+
+// click delete button
+IWebElement deleteButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr/td[5]/a[2]"));
+deleteButton.Click();
+Thread.Sleep(1500);
+
+// conforming delete ok button
+driver.SwitchTo().Alert().Accept();
+
+// identify hello hari
+IWebElement hellohariButton = driver.FindElement(By.XPath("//*[@id=\"logoutForm\"]/ul/li/a"));
+hellohariButton.Click();
+Thread.Sleep(1500);
+
+//click log off button
+IWebElement logoffButton = driver.FindElement(By.XPath("//*[@id=\"logoutForm\"]/ul/li/ul/li[2]/a"));
+logoffButton.Click();
+
+// chech if user has logged out successfully
+
+
+
+
+
+
+
+
+
 
 
 
