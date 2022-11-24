@@ -46,7 +46,16 @@ namespace Firstone.Pages
             Thread.Sleep(1500);
 
             // chech if user has logged in successfully
+            IWebElement newCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
 
+            if(newCode.Text == "C001")
+            {
+                Console.WriteLine("New record created successfully.");
+            }
+            else
+            {
+                Console.WriteLine("New record hasn't been created.");
+            }
         }
 
         public void EditTM(IWebDriver driver)
@@ -67,6 +76,15 @@ namespace Firstone.Pages
             editDescriptionTextbox.Clear();
             editDescriptionTextbox.SendKeys("Firstone");
             Thread.Sleep(1500);
+
+            // edit price per unit textbox
+            IWebElement overlappingTag = driver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[4]/div/span[1]/span/input[1]"));
+            IWebElement pricePerUnitTextbox = driver.FindElement(By.Id("Price"));
+            
+            overlappingTag.Click();
+            pricePerUnitTextbox.Clear();
+            overlappingTag.Click();
+            pricePerUnitTextbox.SendKeys("200");
 
             // click save button
             IWebElement clickSavebutton = driver.FindElement(By.Id("SaveButton"));
