@@ -7,7 +7,7 @@ namespace Firstone.Pages
     {
       public void LoginActions(IWebDriver driver)
         {
-           
+
             driver.Manage().Window.Maximize();
 
             // launch turnup portal

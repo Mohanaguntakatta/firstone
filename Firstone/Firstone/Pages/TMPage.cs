@@ -60,9 +60,12 @@ namespace Firstone.Pages
 
         public void EditTM(IWebDriver driver)
         {
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
+
+            IWebElement gotothelastpage = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
+            gotothelastpage.Click();
             // click edit button
-            IWebElement editButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[2]/td[5]/a[1]"));
+            IWebElement editButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[5]/a[1]"));
             editButton.Click();
 
             // edit code textbox 
@@ -103,10 +106,16 @@ namespace Firstone.Pages
 
         public void DeleteTM(IWebDriver driver)
         {
+            Thread.Sleep(2000);
+
+            IWebElement gotothelastpage = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
+            gotothelastpage.Click();
+            Thread.Sleep(2000);
+
             // click delete button
-            IWebElement deleteButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr/td[5]/a[2]"));
+            IWebElement deleteButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[5]/a[2]"));
             deleteButton.Click();
-            Thread.Sleep(1500);
+            Thread.Sleep(2000);
 
             // conforming delete ok button
             driver.SwitchTo().Alert().Accept();
