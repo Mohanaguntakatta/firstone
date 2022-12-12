@@ -10,17 +10,17 @@ namespace Firstone.Pages
 {
     public class EmployeePage : CommonDriver
     {
-        public void CreateEmployee(IWebDriver driver)
+        public void CreateEmployee()
         {
 
         }
 
-        public void EditEmployee(IWebDriver driver)
+        public void EditEmployee()
         {
 
         }
 
-        public void DeleteEmployee(IWebDriver driver)
+        public void DeleteEmployee()
         {
 
         }

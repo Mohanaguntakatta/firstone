@@ -4,7 +4,7 @@ using OpenQA.Selenium;
 
 namespace Firstone.Pages
 {
-    public class TMPage
+    public class TMPage:CommonDriver
     {
         public void CreateTM(IWebDriver driver)
         {
@@ -48,16 +48,31 @@ namespace Firstone.Pages
             // chech if user has logged in successfully
             IWebElement newCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
 
-            if(newCode.Text == "C001")
-            {
-                Console.WriteLine("New record created successfully.");
-            }
-            else
-            {
-                Console.WriteLine("New record hasn't been created.");
-            }
+            //if(newCode.Text == "C001")
+            //{
+            //    Console.WriteLine("New record created successfully.");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("New record hasn't been created.");
+            //}
         }
+        public string GetCode(IWebDriver driver)
+        {
+            IWebElement ActualCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
+            return ActualCode.Text;
+        }
+        public string GetDescription(IWebDriver driver)
+        {
+            IWebElement ActualDescription = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[3]"));
+            return ActualDescription.Text;
 
+        }
+        public string GetPrice(IWebDriver driver)
+        {
+            IWebElement ActualPrice = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[4]"));
+            return ActualPrice.Text;
+        }
         public void EditTM(IWebDriver driver)
         {
             Thread.Sleep(2000);

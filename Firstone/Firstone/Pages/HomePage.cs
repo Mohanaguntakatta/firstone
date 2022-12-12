@@ -1,9 +1,10 @@
-﻿using OpenQA.Selenium;
+﻿using Firstone.Utilites;
+using OpenQA.Selenium;
 
 
 namespace Firstone.Pages
 {
-    public class HomePage
+    public class HomePage:CommonDriver
     {
         public void GotoTMPage(IWebDriver driver)
         {

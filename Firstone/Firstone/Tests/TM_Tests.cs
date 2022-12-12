@@ -14,9 +14,11 @@ namespace Firstone.Tests
     [Parallelizable]
     public class TM_Tests : CommonDriver
     {
+ 
         [Test, Order (1)]
         public void CreateTM_Test()
         {
+            // Home page object intialization and definitioon
             HomePage homepageobj = new HomePage();
             homepageobj.GotoTMPage(driver);
 
@@ -27,7 +29,7 @@ namespace Firstone.Tests
         [Test, Order (2)]
         public void EditTM_Test()
         {
-
+            // Home page object intialization and definitioon
             HomePage homepageobj = new HomePage();
             homepageobj.GotoTMPage(driver);
 
@@ -38,22 +40,12 @@ namespace Firstone.Tests
         [Test, Order (3)]
         public void DeleteTM_Test()
         {
+            // Home page object intialization and definitioon
             HomePage homepageobj = new HomePage();
             homepageobj.GotoTMPage(driver);
 
             TMPage tmpageobj = new TMPage(); 
             tmpageobj.DeleteTM(driver);
-        }        
-
-
-
-
-
-
-
-
-
-
-
+        }
     }
 }
